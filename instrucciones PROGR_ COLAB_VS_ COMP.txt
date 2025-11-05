@@ -1,0 +1,23 @@
+PARA CORRER EL PROGRAMA COLABORACIÓN VS COMPETICIÓN
+
+Primero hay que permitir la ejecución de scripts en el sistema. Para ello:
+En Windows Powershell ejecute Set-ExecutionPolicy RemoteSigned para permitir ejecución de scripts locales. Entonces en VSCode descargue npm install pg con lo que se
+añade en package.json la dependencia "dependencies": {
+  "pg": "^8.11.0"
+}  para poder ligar mi app con la BD con la función pg require('pg')
+
+Al terminal vuelvo a restringir la ejecución de scripts locales con Set-ExecutionPolicy Restricted en Powershell Windows
+por seguridad cuando ya no necesitaba ejecutar más de estos scripts 
+
+
+Tienes que desde Visual Studio Code abrir el programa. Luego abrir cuatro pestañas de la terminal: 2 en cd server y 2 en cd client.
+instalar paquetes y dependencias si no se ha hecho antes. También postgre, next, react, cloudflared tunnel…
+Luego en una terminal de /server npm run dev 
+Y en la otra terminal de /server cloudflared tunnel --url http://localhost:3001
+Luego en una terminal de /cliente npm run dev 
+Y en la otra terminal de /cliente cloudflared tunnel --url http://localhost:3000
+El enlace que salga en la terminal lo tienes que copiar en .env tal como así: 
+para /server NEXT_PUBLIC_SERVER_URL=https://complete-views-champions-conclusions.trycloudflare.com
+para /client NEXT_PUBLIC_BASE_URL=https://charlie-walnut-hydraulic-publicly.trycloudflare.com
+Finalmente en el ordenador abres en tu navegador localhost:3000/admin
+Puedes controlar el guardado de datos de la partida en https://console.neon.tech/app/projects/purple-bread-99370264?endpointId=ep-calm-cell-a92wyeqs&branchId=br-cool-sound-a9delkox. Y en caso de que una partida suspendida quede abierta imposibilitando abrir otra se hace desde aquí cambiando el game status a completed. También en cuestión de salida y reconexión de usuarios.
