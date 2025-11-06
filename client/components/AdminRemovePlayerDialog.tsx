@@ -11,7 +11,7 @@ import { List } from "lucide-react";
 export function AdminRemovePlayer({ gameId }: { gameId: string }) {
   return (
     <div className="flex  w-full h-[50px]  text-black font-bold justify-center items-center">
-      <div>Admin Screen </div>
+      <div>Pantalla de Administrador </div>
       <div className="flex absolute w-full z-10 mr-4 justify-end">
         <Dialog>
           <DialogTrigger
@@ -19,11 +19,11 @@ export function AdminRemovePlayer({ gameId }: { gameId: string }) {
             type="button"
           >
             <List className="size-4" />
-            Players
+            Jugadores
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Game ID: {gameId}</DialogTitle>
+              <DialogTitle>ID del Juego: {gameId}</DialogTitle>
               {/* <DialogDescription>Players List</DialogDescription> */}
             </DialogHeader>
             <PlayersList gameId={gameId} />

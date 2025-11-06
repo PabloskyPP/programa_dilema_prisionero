@@ -23,9 +23,9 @@ const VotingScreen = ({
   return (
     <div className="h-screen w-full flex justify-center items-center bg-gray-100 ">
       <div className="flex justify-center items-center bg-white shadow-xl w-[60%] min-w-[300px] max-w-[700px] flex-col gap-6 px-8 py-12 rounded-md">
-        <h3 className="font-bold text-black text-2xl">Round {roundNumber}</h3>
+        <h3 className="font-bold text-black text-2xl">Ronda {roundNumber}</h3>
         <p className="text-gray-700 text-lg">
-          In this round your team decides...? Choose wisely!
+          En esta ronda tu equipo decide...? ¡Elige sabiamente!
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -37,7 +37,7 @@ const VotingScreen = ({
             size={"lg"}
             className="bg-green-500 text-lg p-6 text-white hover:bg-green-600"
           >
-            Collaborate
+            Colaborar
           </Button>
           <Button
             disabled={hasVoted}
@@ -48,12 +48,12 @@ const VotingScreen = ({
             size={"lg"}
             className="hover:brightness-90 text-lg p-6"
           >
-            Do not collaborate
+            No colaborar
           </Button>
         </div>
 
         <p className="text-sm text-gray-500">
-          Waiting for all teams to vote...
+          Esperando a que todos los equipos voten...
         </p>
 
         <div className="text-gray-800 font-bold">

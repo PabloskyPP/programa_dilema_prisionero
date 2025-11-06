@@ -14,7 +14,7 @@ const PlayerWaitingPage = ({ gameId }: { gameId: string }) => {
   const handleJoin = () => {
     const name = nameInput.trim();
     if (!name) {
-      alert("Please enter a valid name");
+      alert("Por favor ingresa un nombre válido");
       return;
     }
     localStorage.setItem("playerName", name);
@@ -25,16 +25,16 @@ const PlayerWaitingPage = ({ gameId }: { gameId: string }) => {
   if (!joined) {
     return (
       <div className="flex flex-col items-center justify-center h-screen gap-4">
-        <h1>Join Game {gameId}</h1>
+        <h1>Unirse al Juego {gameId}</h1>
         <input
           type="text"
-          placeholder="Enter your name"
+          placeholder="Ingresa tu nombre"
           value={nameInput}
           onChange={(e) => setNameInput(e.target.value)}
           className="border p-2"
         />
         <Button onClick={handleJoin} className="btn btn-primary">
-          Join Game
+          Unirse al Juego
         </Button>
       </div>
     );
@@ -42,14 +42,14 @@ const PlayerWaitingPage = ({ gameId }: { gameId: string }) => {
   if (playersLoaded)
     return (
       <div className="flex flex-col items-center justify-center h-screen gap-4">
-        <h1>Waiting Room - Game {gameId}</h1>
-        <h2>Players waiting: {players.length}</h2>
+        <h1>Sala de Espera - Juego {gameId}</h1>
+        <h2>Jugadores esperando: {players.length}</h2>
         <ul>
           {players.map((p, i) => (
             <li key={i}>{p.name}</li>
           ))}
         </ul>
-        <p>Waiting for the game to start...</p>
+        <p>Esperando a que comience el juego...</p>
       </div>
     );
 };

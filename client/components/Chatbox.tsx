@@ -87,10 +87,10 @@ export function ChatBox({
           disabled={isAdmin}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          placeholder="Type your message..."
+          placeholder="Escribe tu mensaje..."
         />
         <Button onClick={sendMessage} disabled={isAdmin}>
-          Send
+          Enviar
         </Button>
       </div>
     </div>

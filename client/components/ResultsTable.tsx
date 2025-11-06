@@ -50,17 +50,17 @@ export function ResultsTable() {
     return (
       <div>
         <Table className="text-center border-4" border={8}>
-          <TableCaption>Leaderboard</TableCaption>
+          <TableCaption>Tabla de Clasificación</TableCaption>
           <TableHeader className="text-center">
             <TableRow className="text-center">
               <TableHead rowSpan={3} className="text-center bg-gray-50">
-                Round
+                Ronda
               </TableHead>
               <TableHead
                 className="text-center bg-blue-500"
                 colSpan={players.length * 3}
               >
-                Results
+                Resultados
               </TableHead>
             </TableRow>
             <TableRow>
@@ -79,13 +79,13 @@ export function ResultsTable() {
               {players.map((_, index) => (
                 <React.Fragment key={index}>
                   <TableHead className="text-center bg-gray-50">
-                    Decision
+                    Decisión
                   </TableHead>
                   <TableHead className="text-center bg-gray-50">
-                    Income
+                    Ingreso
                   </TableHead>
                   <TableHead className="text-center bg-gray-50">
-                    Total Balance
+                    Balance Total
                   </TableHead>
                 </React.Fragment>
               ))}

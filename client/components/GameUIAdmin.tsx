@@ -48,7 +48,7 @@ export default function GameUIAdmin({ gameId }: { gameId: string }) {
                   socket.emit("admin_create_new_round", { gameId });
                 }}
               >
-                Next Round
+                Siguiente Ronda
               </Button>
             )}
             {roundDetails.roundNumber == 10 && (
@@ -57,7 +57,7 @@ export default function GameUIAdmin({ gameId }: { gameId: string }) {
                   socket.emit("admin_end_game", { gameId });
                 }}
               >
-                End Game
+                Terminar Juego
               </Button>
             )}
           </div>
@@ -71,8 +71,8 @@ export default function GameUIAdmin({ gameId }: { gameId: string }) {
         <div className="flex items-center justify-center h-[calc(100vh-55px)] overflow-y-auto ">
           <div className="bg-gray-50 rounded-lg min-w-[70%] min-h-[70%] max-w-[800px]">
             <h2 className="font-bold text-xl text-center py-4 border-b-2 border-gray-300 mx-8 mb-4">
-              Round {roundDetails.roundNumber} - Discussion time - Time left:
-              &nbsp;
+              Ronda {roundDetails.roundNumber} - Tiempo de discusión - Tiempo
+              restante: &nbsp;
               {roundDetails?.startedAt && (
                 <RoundTimer
                   startedAt={roundDetails.startedAt}
@@ -93,7 +93,7 @@ export default function GameUIAdmin({ gameId }: { gameId: string }) {
               </div>
               <div className="lg:w-1/4 flex flex-col items-center justify-center gap-4">
                 <Button className="cursor-not-allowed hover:bg-yellow-500 px-8 py-5 text-black bg-yellow-500">
-                  Go now to vote
+                  Ir ahora a votar
                 </Button>
                 <div>
                   <VoteProgress totalPlayers={players.length} />

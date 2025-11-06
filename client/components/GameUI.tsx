@@ -33,7 +33,7 @@ export default function GameUI({ gameId }: { gameId: string }) {
           setRoundDetails(roundData);
           const roundNumber = roundData.roundNumber;
           if (roundNumber == 5 || roundNumber == 6 || roundNumber == 9) {
-            console.log("No chat this round.");
+            console.log("Sin chat esta ronda.");
             setShowChat(false);
           } else {
             setShowChat(true);
@@ -60,8 +60,8 @@ export default function GameUI({ gameId }: { gameId: string }) {
           <div className="flex items-center justify-center h-screen">
             <div className="bg-gray-50 rounded-lg min-w-[70%] min-h-[70%] max-w-[800px]">
               <h2 className="font-bold text-xl text-center py-4 border-b-2 border-gray-300 mx-8 mb-4">
-                Round {roundDetails.roundNumber} - Discussion time - Time left:
-                &nbsp;
+                Ronda {roundDetails.roundNumber} - Tiempo de discusión - Tiempo
+                restante: &nbsp;
                 {roundDetails?.startedAt && (
                   <RoundTimer
                     startedAt={roundDetails.startedAt}
@@ -85,7 +85,7 @@ export default function GameUI({ gameId }: { gameId: string }) {
                       setShowChat(false);
                     }}
                   >
-                    Go now to vote
+                    Ir ahora a votar
                   </Button>
                   <div>
                     <VoteProgress totalPlayers={players.length} />
