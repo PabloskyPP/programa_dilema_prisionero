@@ -48,7 +48,7 @@ const AdminPage = () => {
     fetchOrCreateGame();
 
     socket.on("no_players_in_game", () => {
-      toast.error("No players in game.");
+      toast.error("No hay jugadores en el juego.");
     });
   }, []);
 
@@ -77,7 +77,7 @@ const AdminPage = () => {
     return (
       <div className="flex w-full h-screen items-center justify-center">
         <div className="flex px-8 py-8 gap-4 flex-col items-center justify-center">
-          <h2 className="text-xl font-bold">Scan to join the game</h2>
+          <h2 className="text-xl font-bold">Escanea para unirte al juego</h2>
 
           <QRCode
             className="w-[200px] h-[200px]"
@@ -93,7 +93,7 @@ const AdminPage = () => {
             className="cursor-pointer"
             onClick={() => handleUpdateStatus("instructions")}
           >
-            Start Game
+            Comenzar Juego
           </Button>
 
           {gameId && <PlayersList gameId={gameId} />}

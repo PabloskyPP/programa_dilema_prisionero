@@ -75,7 +75,7 @@ const GamePage = ({ params }: { params: Promise<{ gameId: string }> }) => {
   if (!playerIsInGame) {
     return (
       <div className="flex h-screen justify-center items-center font-bold text-2xl">
-        Game Already Started
+        El Juego Ya Ha Comenzado
       </div>
     );
   }

@@ -24,12 +24,12 @@ const PlayersList = ({ gameId }: { gameId: string }) => {
   return (
     <div>
       <Table>
-        <TableCaption>Total Players : {players.length}</TableCaption>
+        <TableCaption>Total de Jugadores : {players.length}</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px] text-center">No.</TableHead>
             <TableHead className="w-[100px] text-center">Id</TableHead>
-            <TableHead className="text-center">Player Name</TableHead>
+            <TableHead className="text-center">Nombre del Jugador</TableHead>
             <TableHead className="text-center"></TableHead>
           </TableRow>
         </TableHeader>

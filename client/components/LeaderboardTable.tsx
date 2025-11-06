@@ -48,17 +48,17 @@ export function LeaderboardTable({ gameId }: { gameId: string }) {
       return (
         <div>
           <Table className="text-center border-4" border={8}>
-            <TableCaption>Leaderboard</TableCaption>
+            <TableCaption>Tabla de Clasificación</TableCaption>
             <TableHeader className="text-center">
               <TableRow className="text-center">
                 <TableHead rowSpan={3} className="text-center bg-gray-50">
-                  Round
+                  Ronda
                 </TableHead>
                 <TableHead
                   className="text-center bg-blue-200"
                   colSpan={players.length * 3}
                 >
-                  Results
+                  Resultados
                 </TableHead>
               </TableRow>
               <TableRow>
@@ -78,13 +78,13 @@ export function LeaderboardTable({ gameId }: { gameId: string }) {
                 {players.map((_, index) => (
                   <React.Fragment key={index}>
                     <TableHead className="text-center bg-gray-50">
-                      Decision
+                      Decisión
                     </TableHead>
                     <TableHead className="text-center bg-gray-50">
-                      Income
+                      Ingreso
                     </TableHead>
                     <TableHead className="text-center bg-gray-50">
-                      Total Balance
+                      Balance Total
                     </TableHead>
                   </React.Fragment>
                 ))}
@@ -100,7 +100,7 @@ export function LeaderboardTable({ gameId }: { gameId: string }) {
                   {roundData.playerIncomes.map((data, j) => (
                     <React.Fragment key={j}>
                       <TableCell className="capitalize">
-                        {data.decision}
+                        {data.decision === "collaborate" ? "Colaborar" : "No colaborar"}
                       </TableCell>
                       <TableCell
                         className={`${
@@ -136,7 +136,7 @@ export function LeaderboardTable({ gameId }: { gameId: string }) {
     else {
       return (
         <div className="flex h-screen justify-center items-center">
-          Not Found
+          No Encontrado
         </div>
       );
     }

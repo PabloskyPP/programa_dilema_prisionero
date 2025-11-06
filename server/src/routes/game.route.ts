@@ -248,15 +248,29 @@ export async function handleRoundEnd({ gameId }: { gameId: string }) {
       .map((d) => {
         let income = 0;
 
-        if (d.decision === "collaborate") {
-          income = 1 - totalDefectors;
-        } else {
-          if (totalCollaborators > totalDefectors) {
-            income = totalCollaborators / totalDefectors;
-          } else if (totalCollaborators === 0) {
-            income = totalPlayers * -1;
+        // New scoring logic
+        if (totalDefectors === 0) {
+          // Everyone collaborates → everyone gets +1
+          income = 1;
+        } else if (totalCollaborators > totalDefectors) {
+          // Majority collaborators
+          if (d.decision === "collaborate") {
+            income = totalCollaborators / totalPlayers;
           } else {
-            income = (totalDefectors / totalCollaborators) * -1;
+            // Defectors get +1, but if only one defector, gets +2
+            income = totalDefectors === 1 ? 2 : 1;
+          }
+        } else if (totalCollaborators === totalDefectors) {
+          // Equal split → everyone gets 0
+          income = 0;
+        } else if (totalCollaborators < totalDefectors) {
+          // Majority defectors
+          if (totalCollaborators === 0) {
+            // Everyone defects → everyone loses total players
+            income = -totalPlayers;
+          } else {
+            // Everyone loses (defectors / total)
+            income = -(totalDefectors / totalPlayers);
           }
         }
 
