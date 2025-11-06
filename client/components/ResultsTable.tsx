@@ -101,7 +101,7 @@ export function ResultsTable() {
                 {roundData.playerIncomes.map((data, j) => (
                   <React.Fragment key={j}>
                     <TableCell className="capitalize">
-                      {data.decision}
+                      {data.decision === "collaborate" ? "Colaborar" : "No colaborar"}
                     </TableCell>
                     <TableCell
                       className={`${
