@@ -1,13 +1,27 @@
 PARA CORRER EL PROGRAMA COLABORACIÓN VS COMPETICIÓN
 
 Primero hay que permitir la ejecución de scripts en el sistema. Para ello:
-En Windows Powershell ejecute Set-ExecutionPolicy RemoteSigned para permitir ejecución de scripts locales. Entonces en VSCode descargue npm install pg con lo que se
-añade en package.json la dependencia "dependencies": {
-  "pg": "^8.11.0"
-}  para poder ligar mi app con la BD con la función pg require('pg')
-
+En Windows Powershell ejecute Set-ExecutionPolicy RemoteSigned para permitir ejecución de scripts locales. 
 Al terminal vuelvo a restringir la ejecución de scripts locales con Set-ExecutionPolicy Restricted en Powershell Windows
-por seguridad cuando ya no necesitaba ejecutar más de estos scripts 
+por seguridad cuando ya no necesitaba ejecutar más de estos scripts. 
+
+Entonces en VSCode descargue las dependencias necesarias:
+Primero descargar desde las páginas oficiales Node: https://nodejs.org/es/download
+También conveniente si aún no se tiene, Git: https://git-scm.com/install/windows
+Luego se descargan las dependencias del programa con el comando npm install, y luego npm ci
+Si apareciesen muchas vulnerabilidades en las dependencias revisarlas con npm audit, y solucionarlas con npm audit fix
+Tammbién es necesario instalar cloudflared. Se puede revisar si ya está instalado con: cloudflared --version, y where.exe cloudflared
+Cloudflared es una dependencia peligrosa que expone tu servidor local en la nube. Revisar si supone un riesgo su instalación en tu ordenador. 
+Preferiblemente instalar usando un docker y mediante el comando en VSCode winget install --id Cloudflare.cloudflared
+Una vez se termine de utilizar el programa es conveniente desinstalarlo: winget uninstall --id Cloudflare.cloudflared
+...carpeta next?
+
+Opcionalmente si se quiere asociar el programa a una BD PostgreSQL ejecutar npm install pg con lo que se añade en package.json la dependencia "dependencies": {
+  "pg": "^8.11.0"
+}  para poder ligar una app con la BD con una función pg require('pg')
+
+
+
 
 
 Tienes que desde Visual Studio Code abrir el programa. Luego abrir cuatro pestañas de la terminal: 2 en cd server y 2 en cd client.
