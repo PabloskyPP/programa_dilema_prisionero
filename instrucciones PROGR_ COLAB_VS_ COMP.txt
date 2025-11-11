@@ -20,9 +20,35 @@ Opcionalmente si se quiere asociar el programa a una BD PostgreSQL ejecutar npm 
   "pg": "^8.11.0"
 }  para poder ligar una app con la BD con una función pg require('pg')
 Finalmete clona este repositorio en tu ordenador o VM: git clone https://github.com/PabloskyPP/programa_dilema_prisionero.git
+Y comprobar que todos los archivos se han clonado correctamente (ejecutar en terminal /server y /client ls -a).
+Faltarían algunos archivos como en /client carpeta .next y node_modules, y archivo next-env.d.ts. 
+Estos se generan automáticamente cuando "cd ~/programa_dilema_prisionero/client",  "npm install" y "npm run dev".
+En cd /client quedaría añadir un .env con:
+# NEXT_PUBLIC_SERVER_URL=http://localhost:3001 para trabajar los datos de la API localmente
+# NEXT_PUBLIC_SERVER_URL=http://localhost:3000 
+NEXT_PUBLIC_SERVER_URL=https://oops-sounds-office-dealtime.trycloudflare.com 
+NEXT_PUBLIC_BASE_URL=https://delight-supplements-triangle-soc.trycloudflare.com
+Y en cd /server añadir otro .env con la dirección de la BD donde guardar los datos: DATABASE_URL='postgresql://...'
 
+Para ver finalmente toda la estructura de carpetas resultante del proyecto puede instalar sudo apt install tree -y
+Y ejecutar tree -L 2 o -L 3, devolviendo en la terminal:
+.
+├── client
+│   ├── package.json
+│   ├── src
+│   └── public
+├── server
+│   ├── index.js
+│   ├── package.json
+│   └── routes
+└── README.md
 
-Tienes que desde Visual Studio Code abrir el programa. Luego abrir cuatro pestañas de la terminal: 2 en cd server y 2 en cd client.
+*Si el programa se ejecuta desde la terminal de una VM se necesita, para abrir 4 pestañas en la terminal, el paquete tmux: sudo apt update && sudo apt install tmux -y
+Dividir la consola en 4 terminales con Ctrl + B, luego % y Ctrl + B, luego ". Si te equivocas puedes eliminar una terminal con Ctrl + D.
+Para moverte entre terminales Ctrl + B y luego flechas.
+para moverte hacia arriba o abajo del texto de la terminal ejecutar tmux set -g mouse on (mover con rueda de ratón) o Ctrl + b  luego  [ (mover con flechas) y "q" para salir.
+
+Luego, desde VSCode o la terminal de la VM, abrir cuatro pestañas de la terminal: 2 en cd server y 2 en cd client.
 instalar paquetes y dependencias si no se ha hecho antes. También postgre, next, react, cloudflared tunnel…
 Luego en una terminal de /server npm run dev 
 Y en la otra terminal de /server cloudflared tunnel --url http://localhost:3001
@@ -32,4 +58,5 @@ El enlace que salga en la terminal lo tienes que copiar en .env tal como así:
 para /server NEXT_PUBLIC_SERVER_URL=https://complete-views-champions-conclusions.trycloudflare.com
 para /client NEXT_PUBLIC_BASE_URL=https://charlie-walnut-hydraulic-publicly.trycloudflare.com
 Finalmente en el ordenador abres en tu navegador localhost:3000/admin
-Puedes controlar el guardado de datos de la partida en https://console.neon.tech/app/projects/purple-bread-99370264?endpointId=ep-calm-cell-a92wyeqs&branchId=br-cool-sound-a9delkox. Y en caso de que una partida suspendida quede abierta imposibilitando abrir otra se hace desde aquí cambiando el game status a completed. También en cuestión de salida y reconexión de usuarios.
+Puedes controlar el guardado de datos de la partida en https://console.neon.tech/app/projects/purple-bread-99370264?endpointId=ep-calm-cell-a92wyeqs&branchId=br-cool-sound-a9delkox.
+Y en caso de que una partida suspendida quede abierta imposibilitando abrir otra se hace desde aquí cambiando el game status a completed. También en cuestión de salida y reconexión de usuarios.
