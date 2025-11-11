@@ -8,19 +8,20 @@ por seguridad cuando ya no necesitaba ejecutar más de estos scripts.
 Entonces en VSCode descargue las dependencias necesarias:
 Primero descargar desde las páginas oficiales Node: https://nodejs.org/es/download
 También conveniente si aún no se tiene, Git: https://git-scm.com/install/windows
-Luego se descargan las dependencias del programa con el comando npm install, y luego npm ci
+Descargar también next: npm install next react react-dom. Y typescript: npm install --save-dev typescript
+Luego se descargan las dependencias del programa con el comando npm install, y luego npm ci.
 Si apareciesen muchas vulnerabilidades en las dependencias revisarlas con npm audit, y solucionarlas con npm audit fix
 Tammbién es necesario instalar cloudflared. Se puede revisar si ya está instalado con: cloudflared --version, y where.exe cloudflared
 Cloudflared es una dependencia peligrosa que expone tu servidor local en la nube. Revisar si supone un riesgo su instalación en tu ordenador. 
 Preferiblemente instalar usando un docker y mediante el comando en VSCode winget install --id Cloudflare.cloudflared
 Una vez se termine de utilizar el programa es conveniente desinstalarlo: winget uninstall --id Cloudflare.cloudflared
-...carpeta next?
+
 
 Opcionalmente si se quiere asociar el programa a una BD PostgreSQL ejecutar npm install pg con lo que se añade en package.json la dependencia "dependencies": {
   "pg": "^8.11.0"
 }  para poder ligar una app con la BD con una función pg require('pg')
-Finalmete clona este repositorio en tu ordenador o VM: git clone https://github.com/PabloskyPP/programa_dilema_prisionero.git
-Y comprobar que todos los archivos se han clonado correctamente (ejecutar en terminal /server y /client ls -a).
+Finalmete clona este repositorio en tu ordenador o VM: git clone https://github.com/PabloskyPP/programa_dilema_prisionero.git o si ya está instalado (cd programa_dilema_prisionero)
+Y comprobar que todos los archivos se han clonado correctamente (ejecutar en terminal /server y /client ls -a). Para revisar/leer el contenido de un archivo cat .env
 Faltarían algunos archivos como en /client carpeta .next y node_modules, y archivo next-env.d.ts. 
 Estos se generan automáticamente cuando "cd ~/programa_dilema_prisionero/client",  "npm install" y "npm run dev".
 En cd /client quedaría añadir un .env con:
@@ -43,7 +44,7 @@ Y ejecutar tree -L 2 o -L 3, devolviendo en la terminal:
 │   └── routes
 └── README.md
 
-*Si el programa se ejecuta desde la terminal de una VM se necesita, para abrir 4 pestañas en la terminal, el paquete tmux: sudo apt update && sudo apt install tmux -y
+*Si el programa se ejecuta desde la terminal de una VM se necesita, para abrir 4 pestañas en la terminal, el paquete tmux: sudo apt update && sudo apt install tmux -y o si ya isntalado, simplemente "tmux"
 Dividir la consola en 4 terminales con Ctrl + B, luego % y Ctrl + B, luego ". Si te equivocas puedes eliminar una terminal con Ctrl + D.
 Para moverte entre terminales Ctrl + B y luego flechas.
 para moverte hacia arriba o abajo del texto de la terminal ejecutar tmux set -g mouse on (mover con rueda de ratón) o Ctrl + b  luego  [ (mover con flechas) y "q" para salir.
@@ -54,7 +55,9 @@ Luego en una terminal de /server npm run dev
 Y en la otra terminal de /server cloudflared tunnel --url http://localhost:3001
 Luego en una terminal de /cliente npm run dev 
 Y en la otra terminal de /cliente cloudflared tunnel --url http://localhost:3000
-El enlace que salga en la terminal lo tienes que copiar en .env tal como así: 
+*Aquí en /client este último comando puede causar problemas si se ejecuta desde una VM, en tal caso usar cloudflared tunnel --url http://localhost:3000
+
+El enlace que salga en la terminal lo tienes que copiar en /client .env tal como así: 
 para /server NEXT_PUBLIC_SERVER_URL=https://complete-views-champions-conclusions.trycloudflare.com
 para /client NEXT_PUBLIC_BASE_URL=https://charlie-walnut-hydraulic-publicly.trycloudflare.com
 Finalmente en el ordenador abres en tu navegador localhost:3000/admin
