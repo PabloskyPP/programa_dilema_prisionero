@@ -19,9 +19,7 @@ Una vez se termine de utilizar el programa es conveniente desinstalarlo: winget 
 Opcionalmente si se quiere asociar el programa a una BD PostgreSQL ejecutar npm install pg con lo que se añade en package.json la dependencia "dependencies": {
   "pg": "^8.11.0"
 }  para poder ligar una app con la BD con una función pg require('pg')
-
-
-
+Finalmete clona este repositorio en tu ordenador o VM: git clone https://github.com/PabloskyPP/programa_dilema_prisionero.git
 
 
 Tienes que desde Visual Studio Code abrir el programa. Luego abrir cuatro pestañas de la terminal: 2 en cd server y 2 en cd client.
