@@ -56,10 +56,23 @@ Y en la otra terminal de /server cloudflared tunnel --url http://localhost:3001
 Luego en una terminal de /cliente npm run dev 
 Y en la otra terminal de /cliente cloudflared tunnel --url http://localhost:3000
 *Aquí en /client este último comando puede causar problemas si se ejecuta desde una VM, en tal caso usar cloudflared tunnel --url http://localhost:3000
+*Si la VM tiene bajos recursos o capacidad, ejecutar los siguientes comandos antes de abrir el tunel para aumentar temporalmente la capacidad de la VM:
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
 
 El enlace que salga en la terminal lo tienes que copiar en /client .env tal como así: 
 para /server NEXT_PUBLIC_SERVER_URL=https://complete-views-champions-conclusions.trycloudflare.com
 para /client NEXT_PUBLIC_BASE_URL=https://charlie-walnut-hydraulic-publicly.trycloudflare.com
+*Adicionalmente, si no se tiene un tunnel persistente en cloudflared y se está usando una VM, también hay que añadir este enlace en nano ~/programa_dilema_prisionero/client/next.config.ts 
+añadiendo estos enlaces al bloque   allowedDevOrigins: [
+
+https://professionals-men-variance-regarding.trycloudflare.com
+https://list-proprietary-descending-acre.trycloudflare.com
+
 Finalmente en el ordenador abres en tu navegador localhost:3000/admin
+*O en caso de VM: el cloudflare del client: https://charlie-walnut-hydraulic-publicly.trycloudflare.com/admin
+
 Puedes controlar el guardado de datos de la partida en https://console.neon.tech/app/projects/purple-bread-99370264?endpointId=ep-calm-cell-a92wyeqs&branchId=br-cool-sound-a9delkox.
 Y en caso de que una partida suspendida quede abierta imposibilitando abrir otra se hace desde aquí cambiando el game status a completed. También en cuestión de salida y reconexión de usuarios.
