@@ -68,8 +68,8 @@ para /client NEXT_PUBLIC_BASE_URL=https://charlie-walnut-hydraulic-publicly.tryc
 *Adicionalmente, si no se tiene un tunnel persistente en cloudflared y se está usando una VM, también hay que añadir este enlace en nano ~/programa_dilema_prisionero/client/next.config.ts 
 añadiendo estos enlaces al bloque   allowedDevOrigins: [
 
-https://professionals-men-variance-regarding.trycloudflare.com
-https://list-proprietary-descending-acre.trycloudflare.com
+https://distance-affect-theology-scoring.trycloudflare.com
+https://newest-specialist-condition-formatting.trycloudflare.com
 
 Finalmente en el ordenador abres en tu navegador localhost:3000/admin
 *O en caso de VM: el cloudflare del client: https://charlie-walnut-hydraulic-publicly.trycloudflare.com/admin
