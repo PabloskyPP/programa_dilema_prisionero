@@ -1,0 +1,1 @@
+This is the program used by an ongoing research over the prisioner dilemma. You can install it and use it in your computer for creating an online game room to play this dilemma with a group of participants who can join the room scanning a QR code that is showed. 
