@@ -10,7 +10,7 @@ Primero descargar desde las páginas oficiales Node: https://nodejs.org/es/downl
 También conveniente si aún no se tiene, Git: https://git-scm.com/install/windows
 Descargar también next: npm install next react react-dom. Y typescript: npm install --save-dev typescript
 Luego se descargan las dependencias del programa con el comando npm install, y luego npm ci.
-Revisar vulnerabilidades en las dependencia con comando npm audit, y solucionarlas con npm audit fix o actualizando dependencias a última versión, ej. npm install next@latest, drizzle-orm@latest o drizzle-kit@latest.
+Revisar vulnerabilidades en las dependencia con comando npm audit, y solucionarlas con npm audit fix o actualizando dependencias a última versión, ej. npm install next@latest (en /client), drizzle-orm@latest o drizzle-kit@latest (en /server).
 Tammbién es necesario instalar cloudflared. Se puede revisar si ya está instalado con: cloudflared --version, y where.exe cloudflared
 Cloudflared es una dependencia peligrosa que expone tu servidor local en la nube. Revisar si supone un riesgo su instalación en tu ordenador. Para mayor seguridad, en vez de tunneling raw dev mod (npm run dev), tunneling el servidor producido ejecutando (npm run build; npm start).
 También se puede instalar temporalmente cloudflared usando un docker y mediante el comando en VSCode winget install --id Cloudflare.cloudflared
