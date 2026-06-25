@@ -2,20 +2,19 @@ PARA CORRER EL PROGRAMA COLABORACIÓN VS COMPETICIÓN
 
 Primero hay que permitir la ejecución de scripts en el sistema. Para ello:
 En Windows Powershell ejecute Set-ExecutionPolicy RemoteSigned para permitir ejecución de scripts locales. 
-Al terminal vuelvo a restringir la ejecución de scripts locales con Set-ExecutionPolicy Restricted en Powershell Windows
-por seguridad cuando ya no necesitaba ejecutar más de estos scripts. 
+Al terminal volver a restringir la ejecución de scripts locales con Set-ExecutionPolicy Restricted en Powershell Windows
+por seguridad cuando ya no necesita ejecutar más de estos scripts. 
 
 Entonces en VSCode descargue las dependencias necesarias:
 Primero descargar desde las páginas oficiales Node: https://nodejs.org/es/download
 También conveniente si aún no se tiene, Git: https://git-scm.com/install/windows
 Descargar también next: npm install next react react-dom. Y typescript: npm install --save-dev typescript
 Luego se descargan las dependencias del programa con el comando npm install, y luego npm ci.
-Si apareciesen muchas vulnerabilidades en las dependencias revisarlas con npm audit, y solucionarlas con npm audit fix
+Revisar vulnerabilidades en las dependencia con comando npm audit, y solucionarlas con npm audit fix o actualizando dependencias a última versión, ej. npm install next@latest, drizzle-orm@latest o drizzle-kit@latest.
 Tammbién es necesario instalar cloudflared. Se puede revisar si ya está instalado con: cloudflared --version, y where.exe cloudflared
-Cloudflared es una dependencia peligrosa que expone tu servidor local en la nube. Revisar si supone un riesgo su instalación en tu ordenador. 
-Preferiblemente instalar usando un docker y mediante el comando en VSCode winget install --id Cloudflare.cloudflared
+Cloudflared es una dependencia peligrosa que expone tu servidor local en la nube. Revisar si supone un riesgo su instalación en tu ordenador. Para mayor seguridad, en vez de tunneling raw dev mod (npm run dev), tunneling el servidor producido ejecutando (npm run build; npm start).
+También se puede instalar temporalmente cloudflared usando un docker y mediante el comando en VSCode winget install --id Cloudflare.cloudflared
 Una vez se termine de utilizar el programa es conveniente desinstalarlo: winget uninstall --id Cloudflare.cloudflared
-
 
 Opcionalmente si se quiere asociar el programa a una BD PostgreSQL ejecutar npm install pg con lo que se añade en package.json la dependencia "dependencies": {
   "pg": "^8.11.0"
@@ -27,8 +26,9 @@ Estos se generan automáticamente cuando "cd ~/programa_dilema_prisionero/client
 En cd /client quedaría añadir un .env con:
 # NEXT_PUBLIC_SERVER_URL=http://localhost:3001 para trabajar los datos de la API localmente
 # NEXT_PUBLIC_SERVER_URL=http://localhost:3000 
-NEXT_PUBLIC_SERVER_URL=https://oops-sounds-office-dealtime.trycloudflare.com 
-NEXT_PUBLIC_BASE_URL=https://delight-supplements-triangle-soc.trycloudflare.com
+Pero en lugar de localhost, la URL del tunnel cloudflared. Ejemplo:
+NEXT_PUBLIC_SERVER_URL=https://shops-sounds-office-deadtime.trycloudflare.com 
+NEXT_PUBLIC_BASE_URL=https://sunlight-products-square-soc.trycloudflare.com
 Y en cd /server añadir otro .env con la dirección de la BD donde guardar los datos: DATABASE_URL='postgresql://...'
 
 Para ver finalmente toda la estructura de carpetas resultante del proyecto puede instalar sudo apt install tree -y
@@ -44,7 +44,7 @@ Y ejecutar tree -L 2 o -L 3, devolviendo en la terminal:
 │   └── routes
 └── README.md
 
-*Si el programa se ejecuta desde la terminal de una VM se necesita, para abrir 4 pestañas en la terminal, el paquete tmux: sudo apt update && sudo apt install tmux -y o si ya isntalado, simplemente "tmux"
+*Si el programa se ejecuta desde la terminal de una máquina virtual (VM) se necesita, para abrir 4 pestañas en la terminal, el paquete tmux: sudo apt update && sudo apt install tmux -y o si ya isntalado, simplemente "tmux".
 Dividir la consola en 4 terminales con Ctrl + B, luego % y Ctrl + B, luego ". Si te equivocas puedes eliminar una terminal con Ctrl + D.
 Para moverte entre terminales Ctrl + B y luego flechas.
 para moverte hacia arriba o abajo del texto de la terminal ejecutar tmux set -g mouse on (mover con rueda de ratón) o Ctrl + b  luego  [ (mover con flechas) y "q" para salir.
@@ -74,5 +74,5 @@ https://newest-specialist-condition-formatting.trycloudflare.com
 Finalmente en el ordenador abres en tu navegador localhost:3000/admin
 *O en caso de VM: el cloudflare del client: https://charlie-walnut-hydraulic-publicly.trycloudflare.com/admin
 
-Puedes controlar el guardado de datos de la partida en https://console.neon.tech/app/projects/purple-bread-99370264?endpointId=ep-calm-cell-a92wyeqs&branchId=br-cool-sound-a9delkox.
-Y en caso de que una partida suspendida quede abierta imposibilitando abrir otra se hace desde aquí cambiando el game status a completed. También en cuestión de salida y reconexión de usuarios.
+Puedes controlar el guardado de datos de la partida en tu base de datos.
+Y en caso de que una partida suspendida quede abierta imposibilitando abrir otra se arregla desde aquí cambiando el game status a completed. También en cuestión de salida y reconexión de usuarios.
